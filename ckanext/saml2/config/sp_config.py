@@ -20,10 +20,11 @@ CONFIG = {
         'sp': {
             'name' : 'CKAN SP',
             'endpoints': {
-                'assertion_consumer_service': [base],
+                'assertion_consumer_service': (base),
                 'single_logout_service' : [(base + '/slo',
                                             BINDING_HTTP_REDIRECT)],
             },
+            "subject_data": ("memcached", "localhost:12121"),
             # Not sure about this stuff (not in config_max
             'required_attributes': [
                 'uid',
